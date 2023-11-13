@@ -15,7 +15,12 @@
 		A643F3182AF997120063AF42 /* SmallProductCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A643F3172AF997120063AF42 /* SmallProductCard.swift */; };
 		A643F31A2AF9973B0063AF42 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = A643F3192AF9973B0063AF42 /* Product.swift */; };
 		A643F31C2AF9974C0063AF42 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A643F31B2AF9974C0063AF42 /* CategoryModel.swift */; };
+		A64C94582AFF058500D1E876 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64C94572AFF058500D1E876 /* ContentView.swift */; };
 		A66B3D012AF9998A003150C9 /* Marketplace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CBE8D72AD8F65F00379839 /* Marketplace.swift */; };
+		A66B3D0B2AFAFC73003150C9 /* VendorCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66B3D0A2AFAFC73003150C9 /* VendorCard.swift */; };
+		A66B3D0D2AFAFD88003150C9 /* Vendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66B3D0C2AFAFD87003150C9 /* Vendor.swift */; };
+		A66B3D0F2AFB020C003150C9 /* StarRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66B3D0E2AFB020C003150C9 /* StarRating.swift */; };
+		A66B3D122AFB1A3C003150C9 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A66B3D112AFB1A3C003150C9 /* FirebaseFirestoreSwift */; };
 		A6807D5A2AF08FA60088E934 /* EventImageCaroseul.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6807D592AF08FA60088E934 /* EventImageCaroseul.swift */; };
 		A6807D5C2AF0934F0088E934 /* DetailedEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6807D5B2AF0934F0088E934 /* DetailedEvent.swift */; };
 		A6807D5E2AF0AFEF0088E934 /* EventData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6807D5D2AF0AFEF0088E934 /* EventData.swift */; };
@@ -111,6 +116,10 @@
 		A643F3172AF997120063AF42 /* SmallProductCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallProductCard.swift; sourceTree = "<group>"; };
 		A643F3192AF9973B0063AF42 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		A643F31B2AF9974C0063AF42 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
+		A64C94572AFF058500D1E876 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A66B3D0A2AFAFC73003150C9 /* VendorCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorCard.swift; sourceTree = "<group>"; };
+		A66B3D0C2AFAFD87003150C9 /* Vendor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vendor.swift; sourceTree = "<group>"; };
+		A66B3D0E2AFB020C003150C9 /* StarRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRating.swift; sourceTree = "<group>"; };
 		A6807D592AF08FA60088E934 /* EventImageCaroseul.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventImageCaroseul.swift; sourceTree = "<group>"; };
 		A6807D5B2AF0934F0088E934 /* DetailedEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedEvent.swift; sourceTree = "<group>"; };
 		A6807D5D2AF0AFEF0088E934 /* EventData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventData.swift; sourceTree = "<group>"; };
@@ -184,6 +193,7 @@
 				A6EB1C482AD332A400A7A89F /* FirebasePerformance in Frameworks */,
 				A6EB1C4A2AD332A400A7A89F /* FirebaseStorage in Frameworks */,
 				A6EB1C442AD332A400A7A89F /* FirebaseInAppMessaging-Beta in Frameworks */,
+				A66B3D122AFB1A3C003150C9 /* FirebaseFirestoreSwift in Frameworks */,
 				A6EB1C382AD332A400A7A89F /* FirebaseAnalytics in Frameworks */,
 				A6EB1C3E2AD332A400A7A89F /* FirebaseDatabase in Frameworks */,
 				A6EB1C422AD332A400A7A89F /* FirebaseFunctions in Frameworks */,
@@ -209,6 +219,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A66B3D102AFB1A3C003150C9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A6CBE8C22AD8EE8800379839 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,10 +264,12 @@
 		A6EB1BFC2AD3310600A7A89F = {
 			isa = PBXGroup;
 			children = (
+				A64C94572AFF058500D1E876 /* ContentView.swift */,
 				A6EB1C072AD3310600A7A89F /* OnCampApp */,
 				A6EB1C182AD3310800A7A89F /* OnCampAppTests */,
 				A6EB1C222AD3310800A7A89F /* OnCampAppUITests */,
 				A6EB1C062AD3310600A7A89F /* Products */,
+				A66B3D102AFB1A3C003150C9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -349,7 +368,9 @@
 				A643F3112AF996C40063AF42 /* CategoryList.swift */,
 				A643F3132AF996E70063AF42 /* Collections.swift */,
 				A643F3152AF997020063AF42 /* ProductCard.swift */,
+				A66B3D0A2AFAFC73003150C9 /* VendorCard.swift */,
 				A643F3172AF997120063AF42 /* SmallProductCard.swift */,
+				A66B3D0E2AFB020C003150C9 /* StarRating.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -379,6 +400,7 @@
 				A6807D612AF0C8A00088E934 /* Constants.swift */,
 				A643F3192AF9973B0063AF42 /* Product.swift */,
 				A643F31B2AF9974C0063AF42 /* CategoryModel.swift */,
+				A66B3D0C2AFAFD87003150C9 /* Vendor.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -423,6 +445,7 @@
 				A6EB1C452AD332A400A7A89F /* FirebaseMessaging */,
 				A6EB1C472AD332A400A7A89F /* FirebasePerformance */,
 				A6EB1C492AD332A400A7A89F /* FirebaseStorage */,
+				A66B3D112AFB1A3C003150C9 /* FirebaseFirestoreSwift */,
 			);
 			productName = OnCampApp;
 			productReference = A6EB1C052AD3310600A7A89F /* OnCampApp.app */;
@@ -548,6 +571,7 @@
 				A6CBE8CB2AD8EF2600379839 /* ProfileTabFilter.swift in Sources */,
 				A6CBE8DA2AD8F67200379839 /* Feed.swift in Sources */,
 				A6807D5A2AF08FA60088E934 /* EventImageCaroseul.swift in Sources */,
+				A66B3D0B2AFAFC73003150C9 /* VendorCard.swift in Sources */,
 				A6807D602AF0C81F0088E934 /* NewMessageViewModel.swift in Sources */,
 				A6807D622AF0C8A00088E934 /* Constants.swift in Sources */,
 				A6FBD3142AE1F29B00BC0F60 /* CMCells.swift in Sources */,
@@ -575,11 +599,13 @@
 				A6EB1C4F2AD4B39C00A7A89F /* SignIn.swift in Sources */,
 				A6FBD3162AE74B3F00BC0F60 /* DetailedPosts.swift in Sources */,
 				A6CBE8CF2AD8EFCE00379839 /* PostCell.swift in Sources */,
+				A64C94582AFF058500D1E876 /* ContentView.swift in Sources */,
 				A69B73CC2AEC0E00008DE77E /* ProfileHeaderCell.swift in Sources */,
 				A6CBE8D42AD8F5FE00379839 /* TabBar.swift in Sources */,
 				A6EB1C592AD4C10E00A7A89F /* AuthData.swift in Sources */,
 				A6CBE8D62AD8F64F00379839 /* CreatePost.swift in Sources */,
 				A6FBD3182AE7588400BC0F60 /* DetailedPostCell.swift in Sources */,
+				A66B3D0D2AFAFD88003150C9 /* Vendor.swift in Sources */,
 				A6CBE8D12AD8F09100379839 /* UserCell.swift in Sources */,
 				A6CBE8CD2AD8EF9F00379839 /* CircularProfilePicture.swift in Sources */,
 				A643F31C2AF9974C0063AF42 /* CategoryModel.swift in Sources */,
@@ -596,6 +622,7 @@
 				A6CBE8E22ADA0F3700379839 /* Signoutbutton.swift in Sources */,
 				A6EB1C5C2AD4C30100A7A89F /* UserData.swift in Sources */,
 				A6CBB17A2ADE416C001437C7 /* MessageData.swift in Sources */,
+				A66B3D0F2AFB020C003150C9 /* StarRating.swift in Sources */,
 				A6FBD3032ADF0EC900BC0F60 /* ChannelCell.swift in Sources */,
 				A6FBD2FD2ADF015000BC0F60 /* Notifications.swift in Sources */,
 				A6FBD30A2ADF1BF600BC0F60 /* Channels.swift in Sources */,
@@ -773,7 +800,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Smith-And-Washington-Digital-Design-LLC.OnCampApp";
+				PRODUCT_BUNDLE_IDENTIFIER = "Smith-And-Washington-Digital-Design-LLC.OnCampAppRelease";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -802,7 +829,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Smith-And-Washington-Digital-Design-LLC.OnCampApp";
+				PRODUCT_BUNDLE_IDENTIFIER = "Smith-And-Washington-Digital-Design-LLC.OnCampAppRelease";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -939,6 +966,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A66B3D112AFB1A3C003150C9 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A6EB1C362AD332A300A7A89F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
 		A6EB1C372AD332A400A7A89F /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A6EB1C362AD332A300A7A89F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

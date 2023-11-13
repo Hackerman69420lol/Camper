@@ -42,7 +42,7 @@ struct Interests: View {
             .navigationTitle("Select Interests")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: tabBar(), isActive: $navigate) {
+                    NavigationLink(destination: tabBar()) {
                         Button(action: {
                             // Save the selected interests to Firestore
                             let documentRef = USER_COLLECTION.document(uid)
@@ -64,6 +64,9 @@ struct Interests: View {
                     }
                 }
             }
+            .navigationDestination(isPresented: $navigate) {
+                    tabBar()
+                }
         }
     }
 }

@@ -9,9 +9,10 @@ import SwiftUI
 
 struct Marketplace: View {
     @State var selectedCategory = "AUCS"
+    var vendorList: [Vendor]
     
     var body: some View {
-        NavigationView{
+        NavigationStack{
             ScrollView {
                 VStack{
                     HStack{
@@ -39,37 +40,34 @@ struct Marketplace: View {
                 //Collections View
                 HStack {
                     
-                    Text("Category Name")
+                    Text("Trending Vendors")
                         .font(.system(size: 24))
                     
                     Spacer()
-                    NavigationLink {
-                        Collections()
-                        
-                    }label: {
-                        Image(systemName: "arrow.right")
-                            .imageScale(.large)
-                    }
                     
                     
                 }
                 .padding(.horizontal,30)
                 .padding(.vertical,15)
                 
-                //Product List
+                // Vendor List
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
-                        ForEach(productList, id: \.id) {item in
-                            ProductCard(product: item)
+                        ForEach(vendorList, id: \.id) { vendor in // Make sure Vendor conforms to Identifiable
+                            
+                            VendorCard(vendor: vendor)
+                            
                         }
                     }
+                    .padding(.horizontal, 30)
                 }
+                
             }
         }
     }
 }
 struct Marketplace_Previews: PreviewProvider {
     static var previews: some View {
-        Marketplace()
+        Marketplace(vendorList: vendorList)
     }
 }

@@ -14,9 +14,7 @@ struct Messages: View {
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
             
-            NavigationLink(
-                destination: Chat(),
-                isActive: $showChatView){ }
+            NavigationLink(destination: Chat()) {}
             
             ScrollView{
                 VStack(alignment: .leading) {
@@ -43,7 +41,9 @@ struct Messages: View {
                 CreateMessage(showChatView: $showChatView)
             })
         }
-        
+        .navigationDestination(isPresented: $showChatView) {
+            Chat()
+        }
     }
 }
 

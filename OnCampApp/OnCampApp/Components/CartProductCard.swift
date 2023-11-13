@@ -25,9 +25,7 @@ struct CartProductCard: View {
                 Text("\(product.name)")
                     .font(.headline)
                 
-                Text(product.category)
-                    .font(.callout)
-                    .opacity(0.5)
+               
             })
             Spacer()
             Text("$\(product.price)")
@@ -42,6 +40,6 @@ struct CartProductCard: View {
 
 struct CartProductCard_Previews: PreviewProvider {
     static var previews: some View {
-        CartProductCard(product: Product(name: "Sample Product", category: "Sample Category", image: "sample_image", price: 0, color: .gray))
+        CartProductCard(product: Product(name: "Sample Product", image: "sample_image", price: 0, color: .gray))
     }
 }

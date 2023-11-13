@@ -11,7 +11,7 @@ struct Collections: View {
     @Environment(\.presentationMode) var mode
     
     var body: some View {
-        NavigationView{
+        NavigationStack{
             ScrollView {
                 VStack{
                     HStack{
