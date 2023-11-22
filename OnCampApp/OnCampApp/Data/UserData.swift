@@ -150,24 +150,27 @@ class UserData:ObservableObject{
     }
 
     func fetchUserData() async {
-        let uid = Auth.auth().currentUser!.uid
+        guard let uid = Auth.auth().currentUser?.uid else {
+            print("No authenticated user found")
+            // Handle the case where there is no authenticated user
+            return
+        }
+
         let db = Firestore.firestore()
-        
+
         do {
             let document = try await db.collection("Users").document(uid).getDocument()
-            
+
             if document.exists {
                 let data = document.data() ?? [:]
-                Task {
-                    await DispatchQueue.main.async {
-                        self.username = data["username"] as? String ?? ""
-                        self.postCount = data["postCount"] as? Int ?? 0
-                        self.followerCount = data["followerCount"] as? Int ?? 0
-                        self.followingCount = data["followingCount"] as? Int ?? 0
-                        self.status = data["status"] as? String ?? ""
-                        self.school = data["school"] as? String ?? ""
-                        self.bio = data["bio"] as? String ?? ""
-                    }
+                DispatchQueue.main.async {
+                    self.username = data["username"] as? String ?? ""
+                    self.postCount = data["postCount"] as? Int ?? 0
+                    self.followerCount = data["followerCount"] as? Int ?? 0
+                    self.followingCount = data["followingCount"] as? Int ?? 0
+                    self.status = data["status"] as? String ?? ""
+                    self.school = data["school"] as? String ?? ""
+                    self.bio = data["bio"] as? String ?? ""
                 }
             } else {
                 print("Document does not exist")
@@ -177,8 +180,6 @@ class UserData:ObservableObject{
         }
     }
 
-
-        
 
 }
 

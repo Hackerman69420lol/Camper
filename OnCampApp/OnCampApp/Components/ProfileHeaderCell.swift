@@ -9,50 +9,56 @@ import SwiftUI
 
 struct ProfileHeaderCell: View {
     var body: some View {
-        VStack(spacing: 20) {
-            HStack {
-                VStack(alignment: .leading, spacing: 12) {
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("AUC Lovebirds")
-                            .font(.title2)
-                            .fontWeight(.semibold)
+        NavigationStack {
+            VStack(spacing: 20) {
+                HStack {
+                    VStack(alignment: .leading, spacing: 12) {
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("AUC Lovebirds")
+                                .font(.title2)
+                                .fontWeight(.semibold)
+                            
+                            Text("@OnCampOfficial")
+                                .font(.subheadline)
+                        }
                         
-                        Text("@OnCampOfficial")
-                            .font(.subheadline)
+                        Text("YRN")
+                            .font(.footnote)
+                        
+                        Text("5000 followers")
+                            .font(.caption)
+                            .foregroundColor(Color("LTBL"))
                     }
                     
-                    Text("YRN")
-                        .font(.footnote)
+                    Spacer()
                     
-                    Text("5000 followers")
-                        .font(.caption)
-                        .foregroundColor(Color("LTBL"))
+                    CircularProfilePictureView()
+                        .frame(width: 80, height: 80)
                 }
-                
-                Spacer()
-                
-                CircularProfilePictureView()
-                    .frame(width: 64, height: 64)
+                HStack{
+                    NavigationLink(destination: editProfileView()) {
+                        Text("Edit Profile")
+                            .font(.subheadline)
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color("LTBLALT"))
+                            .frame(width: 352, height: 32)
+                            .background(Color("LTBL"))
+                            .cornerRadius(8)
+                        
+                    }
+                    NavigationLink(destination: SettingsView()) {
+                        Image(systemName: "gear")
+                        
+                    }
+                }
             }
-            
-            Button {
-                
-            } label: {
-                Text("Follow")
-                    .font(.subheadline)
-                    .fontWeight(.semibold)
-                    .foregroundColor(Color("LTBLALT"))
-                    .frame(width: 352, height: 32)
-                    .background(Color("LTBL"))
-                    .cornerRadius(8)
-            }
+            .padding(.horizontal, 6.0)
         }
-        .padding(.horizontal, 6.0)
     }
 }
-    
-    struct ProfileHeaderCell_Previews: PreviewProvider {
-        static var previews: some View {
-            ProfileHeaderCell()
-        }
+
+struct ProfileHeaderCell_Previews: PreviewProvider {
+    static var previews: some View {
+        ProfileHeaderCell()
     }
+}

@@ -70,6 +70,8 @@ struct VendorCard_Previews: PreviewProvider {
     static var previews: some View {
         // Create a sample vendor for the preview
         let sampleVendor = Vendor(
+            description: "descript",
+            schools: ["d", "e"],
             name: "Vendor One",
             image: "vendorOneImage",
             category: "AUCS",

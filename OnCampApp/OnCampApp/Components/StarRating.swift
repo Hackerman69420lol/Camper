@@ -15,14 +15,16 @@ struct StarRating: View {
     let halfImage = Image(systemName: "star.leadinghalf.filled")
     
     func image(for number: Int) -> Image {
-        if Double(number) > rating {
-            return offImage
-        } else if Double(number) > rating - 0.5 {
+        let numberDouble = Double(number)
+        if numberDouble <= rating {
+            return onImage
+        } else if numberDouble - 0.5 <= rating {
             return halfImage
         } else {
-            return onImage
+            return offImage
         }
     }
+
 
     
     var body: some View {

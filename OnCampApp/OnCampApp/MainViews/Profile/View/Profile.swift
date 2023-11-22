@@ -20,40 +20,30 @@ struct Profile: View {
         let count = CGFloat(ProfileTabFilter.allCases.count)
         return UIScreen.main.bounds.width / count - 20
     }
-    var body: some View {
-        ScrollView(showsIndicators: false) {
-            VStack(spacing: 20) {
-               ProfileHeaderCell()
-                    
-                    VStack {
-                        HStack {
-                            ForEach(ProfileTabFilter.allCases) { filter in
-                                VStack {
-                                    Text(filter.title)
-                                        .font(.subheadline)
-                                        .fontWeight(selectedFilter == filter ? .semibold : .regular)
-                                    
-                                    if selectedFilter == filter {
-                                        Rectangle()
-                                            .foregroundColor(Color("LTBL"))
-                                            .frame(width: filterBarWidth, height: 1)
-                                            .matchedGeometryEffect(id: "item", in: animation)
-                                        
-                                    } else {
-                                        Rectangle()
-                                            .foregroundColor(.clear)
-                                            .frame(width: filterBarWidth, height: 1)
-                                    }
-                                }
-                                .onTapGesture {
-                                    withAnimation(.spring()) {
-                                        selectedFilter = filter
-                                    }
-                                }
+   
+        var body: some View {
+            NavigationStack {
+                ScrollView(showsIndicators: false) {
+                    VStack(spacing: 20) {
+                        ProfileHeaderCell()
+
+                        // Segmented control for filtering
+                        Picker("Filter", selection: $selectedFilter) {
+                            ForEach(ProfileTabFilter.allCases, id: \.self) { filter in
+                                Text(filter.title).tag(filter)
                             }
                         }
-                        LazyVStack {
-                            UserPostsView()
+                        .pickerStyle(SegmentedPickerStyle())
+                        .padding(.horizontal)
+
+                        // Content based on selected filter
+                        switch selectedFilter {
+                        case .posts:
+                            PfpPosts()
+                        case .likes:
+                            PfpLikes()
+                        case .reposts:
+                            PfpReposts()
                         }
                     }
                     .padding(.vertical, 8)
@@ -62,9 +52,11 @@ struct Profile: View {
             .padding(.horizontal)
         }
     }
-    
-    struct Profile_Previews: PreviewProvider {
-        static var previews: some View {
-            Profile()
-        }
+
+
+
+struct Profile_Previews: PreviewProvider {
+    static var previews: some View {
+        Profile()
     }
+}

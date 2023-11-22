@@ -6,53 +6,42 @@
 //
 
 import SwiftUI
-
+import PhotosUI
 
 struct editProfileView: View {
+    @State private var selectedImage: PhotosPickerItem?
+    @State private var username = ""
     @State private var bio = ""
-    @State private var isPrivateProfile = false
-
+    @State private var status = ""
+    @State private var school =  ""
+    @State private var interests = []
+    
     var body: some View {
         NavigationStack {
-            ZStack {
-                Color(.systemGroupedBackground)
-                    .edgesIgnoringSafeArea([.bottom, .horizontal])
+            VStack {
+                PhotosPicker(selection: $selectedImage) {
+                    VStack {
+                        Image(systemName: "person")
+                            .resizable()
+                            .foregroundColor(.white)
+                            .background(.gray)
+                            .clipShape(Circle())
+                            .frame(width: 80, height: 80)
+                        Text("Edit Profile Picture")
+                            .font(.footnote)
+                            .fontWeight(.semibold)
+                        
+                        Divider()
+                    }
+                }
+                .padding(.vertical, 8)
                 
                 VStack {
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text("Name")
-                                .fontWeight(.semibold)
-                            
-                            Text("AUC LOVEBIRDS")
-                        }
-                        
-                        Spacer()
-                        
-                        CircularProfilePictureView()
-                    }
-                    Divider()
-                    
-                    VStack(alignment: .leading) {
-                        Text("Bio")
-                            .fontWeight(.semibold)
-                             
-                        TextField("Enter your bio...", text: $bio, axis: .vertical)
-                    }
-                    
-                    Divider()
-                    
-                    Toggle("Private Profile", isOn: $isPrivateProfile)
+                    EditProfileRow(title: "Username", destination: EPUsername(username: $username))
+                    EditProfileRow(title: "Bio", destination: EPBio(bio: $bio))
+                    EditProfileRow(title: "Status", destination: EPStatis(status: $status))
                 }
-                .font(.footnote)
-                .padding()
-                .background(.white)
-                .cornerRadius(10)
-                .overlay {
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color(.systemGray4), lineWidth: 1)
-                }
-                .padding()
+                Spacer()
             }
             .navigationTitle("Edit Profile")
             .navigationBarTitleDisplayMode(.inline)
@@ -75,8 +64,30 @@ struct editProfileView: View {
                 }
             }
         }
+        .navigationBarBackButtonHidden()
     }
 }
+
+struct EditProfileRow<Destination: View>: View {
+    let title: String
+    let destination: Destination
+    
+    var body: some View {
+        HStack {
+            Text(title)
+                .padding(.leading, 8)
+                .frame(width: 100, alignment: .leading)
+            NavigationLink(destination: destination) {
+                Text("Edit")
+                    .padding(.trailing, 8)
+                Spacer()
+            }
+        }
+        .font(.subheadline)
+        .frame(height: 36)
+    }
+}
+
 
 struct editProfileView_Previews: PreviewProvider {
     static var previews: some View {

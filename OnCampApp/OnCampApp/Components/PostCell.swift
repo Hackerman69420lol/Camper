@@ -15,6 +15,7 @@ import FirebaseFirestore
 struct PostCell: View {
     @ObservedObject var postData = PostData()
     @State private var post = [PostData.Post]()
+    @State private var showActionSheet = false
 
     var postText: String
     var likeCount: Int
@@ -25,6 +26,8 @@ struct PostCell: View {
     var postedAt: Date
     var postId: String = ""
     var userId = Auth.auth().currentUser!.uid
+    
+    
     var body: some View {
         VStack {
             HStack(alignment: .top, spacing: 12) {
@@ -42,7 +45,8 @@ struct PostCell: View {
                             .font(.caption)
                             .foregroundColor(Color("LTBL"))
                         Button {
-                            // Handle button action here
+                            print("Ellipsis button tapped")
+                            self.showActionSheet = true
                         } label: {
                             Image(systemName: "ellipsis")
                                 .foregroundColor(Color("LTBL"))
@@ -87,6 +91,17 @@ struct PostCell: View {
             Divider()
         }
         .padding()
+        .actionSheet(isPresented: $showActionSheet) {
+                    ActionSheet(
+                        title: Text("Post Options"),
+                        buttons: [
+                            .destructive(Text("Delete")) {
+                                // Handle delete action here
+                            },
+                            .cancel()
+                        ]
+                    )
+                }
     }
 
 }

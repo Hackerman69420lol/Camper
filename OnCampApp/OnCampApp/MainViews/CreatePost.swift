@@ -114,13 +114,17 @@ struct CreatePost: View {
             .cornerRadius(8)
             // Blue Send Button
             HStack {
-                Image(systemName: "trash.fill")
-                                .resizable()
-                                .frame(width: 30, height: 30)
-                                .foregroundColor(.red)
-                
+                Button(action: {
+                    postText = ""
+                }) {
+                    Image(systemName: "trash.fill")
+                        .resizable()
+                        .frame(width: 30, height: 30)
+                        .foregroundColor(.red)
+                }
+
                 Spacer()
-                
+
                 Button(action: {
                     // Action when the send button is tapped
                     createPost()
@@ -131,7 +135,7 @@ struct CreatePost: View {
                         .padding(.horizontal, 30)
                         .background(Color.blue)
                         .cornerRadius(8)
-            }
+                }
             }
             .padding()
             Divider()

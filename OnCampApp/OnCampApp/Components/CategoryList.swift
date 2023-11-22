@@ -20,7 +20,7 @@ struct CategoryList: View {
                     }) {
                         HStack {
                             if item.title != "All" {
-                                Image(item.icon) //
+                                Image(systemName: item.icon) //
                                     .foregroundColor(selectedCategory == item.title ? .blue : .black)
                             }
                             Text(item.title)

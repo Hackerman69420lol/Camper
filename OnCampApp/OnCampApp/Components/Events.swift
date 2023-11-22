@@ -15,9 +15,11 @@ struct Events: View {
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .foregroundColor(Color("LTBL"))
+                
+                EventCategoryList()
                 LazyVStack(spacing: 32) {
                     ForEach(0 ... 10, id: \.self) { events in
-                        NavigationLink(value: events) {
+                        NavigationLink(destination: DetailedEvent(EventTitle: "", EventHost: "", EventLocation: "", EventParticipants: 4)) {
                             EventPreview()
                                 .frame(height: 400)
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
@@ -26,7 +28,7 @@ struct Events: View {
                 }
             }
             .navigationDestination(for: Int.self) { events in
-                Text("events")
+                DetailedEvent(EventTitle: "", EventHost: "", EventLocation: "", EventParticipants: 4)
             }
         }
     }
