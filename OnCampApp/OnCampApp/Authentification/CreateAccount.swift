@@ -9,6 +9,7 @@ import SwiftUI
 import Firebase
 import Foundation
 import FirebaseStorage
+import FirebaseFirestore
 
 
 struct CreateAccount: View {
@@ -89,7 +90,7 @@ struct CreateAccount: View {
                 }
                 
                 // Create account button
-                NavigationLink(destination: Interests(uid: self.uid), isActive: $isAccountCreated) {
+                NavigationLink(destination: Interests(uid: self.uid)) {
                     Button(action: {
                         createAccount(bio: userData.bio, username: userData.username, school: userData.school, status: userData.status, followerCount: userData.followerCount, followingCount: userData.followingCount, isVendor: userData.isVendor)
                     }) {
@@ -108,6 +109,9 @@ struct CreateAccount: View {
                     Alert(title: Text("Error"), message: Text(alertMessage), dismissButton: .default(Text("Got it!")))
                 }
             }
+            .navigationDestination(isPresented: $isAccountCreated) {
+                    Interests(uid: self.uid)
+                }
             .padding() // Add padding to the VStack content
             .navigationBarHidden(true) // Hide the navigation bar
         }

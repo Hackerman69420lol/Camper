@@ -30,7 +30,7 @@ struct SignUp: View {
     
     
     var content: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 Image(colorScheme == .dark ? "OnCampDark" : "OnCampLight")
                     .resizable()

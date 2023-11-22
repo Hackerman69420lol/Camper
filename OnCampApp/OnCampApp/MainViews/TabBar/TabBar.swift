@@ -16,7 +16,7 @@ struct tabBar: View {
    
     var body: some View {
         TabView(selection: $selectedtab) {
-            Marketplace()
+            Marketplace(vendorList: vendorList)
                 .tabItem {
                     Image(systemName: selectedtab == 0 ? "bag.fill" : "bag")
                         .environment(\.symbolVariants, selectedtab == 0 ? .fill : .none)

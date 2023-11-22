@@ -20,20 +20,10 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct OnCampAppApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-   
+    
     var body: some Scene {
         WindowGroup {
-            if Auth.auth().currentUser != nil {
-                        tabBar()
-                        // User is authenticated, show the main app content
-                     
-                    } else {
-                        Landing()
-                        // User is not authenticated, show a login/signup view
-                       
-                    }
-                }
-            
+            ContentView()
         }
     }
-
+}

@@ -11,26 +11,17 @@ struct Feed: View {
     
     var body: some View {
         NavigationStack {
-    
-                PostListView()
-                
             
-            .refreshable {
-                print("DEBUG: Refresh OnCamp")
-            }
-            .navigationTitle("Posts")
-            .navigationBarTitleDisplayMode(.inline)
-        }
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
-                    
-                }label: {
-                    Image(systemName: "arrow.counterclockwise")
-                        .foregroundColor(Color("LTBL"))
+            PostListView()
+            
+            
+                .refreshable {
+                    print("DEBUG: Refresh OnCamp")
                 }
-            }
+                .navigationTitle("Posts")
+                .navigationBarTitleDisplayMode(.inline)
         }
+        
     }
 }
 
